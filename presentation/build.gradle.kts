@@ -86,9 +86,7 @@ dependencies {
     implementation(Depends.Libraries.recyclerview)
     implementation(Depends.Libraries.dataStore_preferences)
     //reactive
-    implementation(Depends.Libraries.rx_java_android)
     implementation(Depends.Libraries.rx_binding3)
-    implementation(Depends.Libraries.rx_kotlin)
     implementation(Depends.Libraries.autodispose)
     implementation(Depends.Libraries.autodispose_android)
     implementation(Depends.Libraries.autodispose_android_arch)

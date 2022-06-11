@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         multiDexEnabled = true
-        applicationId = "app.web.drjackycv.mvvmtemplate"
+        applicationId = "app.mvvmtemplate"
         minSdkVersion(Depends.Versions.minSdkVersion)
         targetSdkVersion(Depends.Versions.targetSdkVersion)
         versionCode = Depends.Versions.appVersionCode

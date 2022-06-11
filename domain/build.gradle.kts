@@ -56,9 +56,7 @@ dependencies {
     implementation(Depends.Libraries.paging_rx)
     implementation(Depends.Libraries.lifecycle_livedata)
     implementation(Depends.Libraries.multidex)
-    //reactive
-    implementation(Depends.Libraries.rx_kotlin)
-    implementation(Depends.Libraries.rx_java)
+
     //dependency injection
     implementation(Depends.Libraries.java_inject)
     //test

@@ -12,9 +12,6 @@ object Depends {
         const val minSdkVersion = 21
         const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         const val kotlinVersion = "1.7.0"
-        const val rxKotlinVersion = "3.0.1"
-        const val rxAndroidVersion = "3.0.0"
-        const val rxJavaVersion = "3.1.4"
         const val rxBinding = "4.0.0"
         const val retrofit2Version = "2.9.0"
         const val okhttpLoggingVersion = "5.0.0-alpha.6"
@@ -118,8 +115,6 @@ object Depends {
         const val mockk = "io.mockk:mockk:${Versions.mockkVersion}"
         const val arch_core_testing =
             "androidx.arch.core:core-testing:${Versions.archCoreTestingVersion}"
-        const val rx_kotlin = "io.reactivex.rxjava3:rxkotlin:${Versions.rxKotlinVersion}"
-        const val rx_java = "io.reactivex.rxjava3:rxjava:${Versions.rxJavaVersion}"
         const val lifecycle_livedata =
             "androidx.lifecycle:lifecycle-livedata:${Versions.lifecycleVersion}"
         const val constraintlayout =
@@ -138,7 +133,6 @@ object Depends {
             "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycleVersion}"
         const val recyclerview =
             "androidx.recyclerview:recyclerview:${Versions.recyclerviewVersion}"
-        const val rx_java_android = "io.reactivex.rxjava3:rxandroid:${Versions.rxAndroidVersion}"
         const val rx_binding3 = "com.jakewharton.rxbinding4:rxbinding:${Versions.rxBinding}"
         const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
         const val glide_compiler = "com.github.bumptech.glide:compiler:${Versions.glideVersion}"
