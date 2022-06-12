@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="roboto_thin">font/roboto_thin.ttf</string>
+    <string name="roboto_thin_italic">font/roboto_thin_italic.ttf</string>
+
+    <string name="roboto_regular">font/roboto_regular.ttf</string>
+    <string name="roboto_regular_italic">font/roboto_regular_italic.ttf</string>
+
+    <string name="roboto_light">font/roboto_light.ttf</string>
+    <string name="roboto_light_italic">font/roboto_light_italic.ttf</string>
+
+    <string name="roboto_medium">font/roboto_medium.ttf</string>
+    <string name="roboto_medium_italic">font/roboto_medium_italic.ttf</string>
+
+    <string name="roboto_bold">font/roboto_bold.ttf</string>
+    <string name="roboto_bold_italic">font/roboto_bold_italic.ttf</string>
+
+    <string name="roboto_black">font/roboto_black.ttf</string>
+    <string name="roboto_black_italic">font/roboto_black_italic.ttf</string>
+
+
+    <string name="font_thin">@string/roboto_thin</string>
+    <string name="font_light">@string/roboto_light</string>
+    <string name="font_regular">@string/roboto_regular</string>
+    <string name="font_medium">@string/roboto_medium</string>
+    <string name="font_bold">@string/roboto_bold</string>
+    <string name="font_black">@string/roboto_black</string>
+
+
+</resources>

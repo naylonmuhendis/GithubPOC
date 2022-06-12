@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_height">50</dimen>
+    <dimen name="app_space">10dp</dimen>
+    <dimen name="header_title_left_margin">20dp</dimen>
+</resources>

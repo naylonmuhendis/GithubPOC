@@ -1,0 +1,10 @@
+<resources>
+
+
+    <declare-styleable name="AdvTextView">
+        <attr name="customFont" />
+    </declare-styleable>
+
+    <attr name="customFont" format="reference" />
+
+</resources>
