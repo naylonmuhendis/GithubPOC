@@ -1,8 +1,7 @@
-package app.presentation.products.entity
+package app.presentation.products.entity.repo
 
 import app.domain.base.mapper.Mapper
 import app.domain.products.entity.Repo
-import app.domain.products.entity.RepoOwner
 
 class RepoMapper : Mapper<Repo, RepoUI> {
 

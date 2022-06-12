@@ -1,4 +1,4 @@
-package app.presentation.products.entity
+package app.presentation.products.entity.repo
 
 import androidx.recyclerview.widget.RecyclerView
 import app.presentation.databinding.ItemRepoListBinding

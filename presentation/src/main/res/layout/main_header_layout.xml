@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="headerModel"
+            type="app.presentation.products.entity.base.HeaderUIModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:layout_marginBottom="@dimen/app_space"
+        android:background="@android:color/white"
+        app:visibleGone="@{headerModel.visible}"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/header_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/app_space"
+            android:adjustViewBounds="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_arrow"
+            app:visibleGone="@{headerModel.backButtonVisible}"
+            tools:visibility="visible"
+            tools:ignore="ContentDescription" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/header_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/header_title_left_margin"
+            android:layout_toStartOf="@+id/openCV"
+            android:layout_toEndOf="@+id/header_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/openCV"
+            app:layout_constraintStart_toEndOf="@+id/header_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginLeft="@dimen/header_title_left_margin"
+            app:layout_goneMarginStart="@dimen/header_title_left_margin">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <app.presentation.components.AdvTextView
+            android:id="@+id/header_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/header_height"
+            android:layout_marginEnd="@dimen/header_height"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:text="@{headerModel.title}"
+            android:textColor="#000000"
+            android:textSize="@dimen/header_title_text_size"
+            app:customFont="@string/roboto_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="HOME" />
+
+        <Button
+            android:id="@+id/openCV"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/header_height"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/app_space"
+            android:background="@color/red"
+            android:gravity="center"
+            android:scaleType="centerCrop"
+            android:text="@string/open_cv"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibleGone="@{headerModel.closeBtnVisible}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

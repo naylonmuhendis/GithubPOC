@@ -1,7 +1,6 @@
 package app.presentation.products.factory
 
-import app.domain.products.entity.Repo
-import app.presentation.products.entity.RepoUI
+import app.presentation.products.entity.repo.RepoUI
 
 class RepoUIFactory {
 

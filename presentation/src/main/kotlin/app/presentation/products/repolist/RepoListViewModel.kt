@@ -2,7 +2,6 @@ package app.presentation.products.repolist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
@@ -11,7 +10,7 @@ import app.domain.products.usecase.GetBeersListByCoroutineParams
 import app.domain.products.usecase.GetGithubRepoSearchUseCase
 import app.presentation.base.adapter.RecyclerItem
 import app.presentation.base.viewmodel.BaseViewModel
-import app.presentation.products.entity.RepoMapper
+import app.presentation.products.entity.repo.RepoMapper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

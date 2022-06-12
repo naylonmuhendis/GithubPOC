@@ -3,4 +3,5 @@
     <dimen name="header_height">50</dimen>
     <dimen name="app_space">10dp</dimen>
     <dimen name="header_title_left_margin">20dp</dimen>
+    <dimen name="header_title_text_size">18sp</dimen>
 </resources>

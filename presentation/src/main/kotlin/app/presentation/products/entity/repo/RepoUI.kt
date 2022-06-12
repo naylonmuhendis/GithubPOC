@@ -1,4 +1,4 @@
-package app.presentation.products.entity
+package app.presentation.products.entity.repo
 
 import android.os.Parcelable
 import app.presentation.base.adapter.RecyclerItem

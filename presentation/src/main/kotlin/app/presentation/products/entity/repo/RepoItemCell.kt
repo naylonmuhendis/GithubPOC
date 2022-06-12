@@ -1,4 +1,4 @@
-package app.presentation.products.entity
+package app.presentation.products.entity.repo
 
 import android.view.LayoutInflater
 import android.view.View

@@ -7,4 +7,5 @@
     <string name="abv">ABV: %1$s</string>
     <string name="rxjava">RxJava</string>
     <string name="coroutine">Coroutine</string>
+    <string name="open_cv">Open CV</string>
 </resources>

@@ -58,7 +58,7 @@ open class AdvTextView : AppCompatTextView {
             typedArray?.recycle()
         }
     }
-    
+
     open fun setFont(font: Int) {
         try {
             val typeface = Typeface.createFromAsset(context.assets, context.getString(font))

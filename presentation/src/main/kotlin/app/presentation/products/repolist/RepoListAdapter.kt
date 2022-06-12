@@ -3,7 +3,7 @@ package app.presentation.products.repolist
 import android.view.View
 import app.presentation.base.adapter.BasePagedListAdapter
 import app.presentation.base.adapter.RecyclerItem
-import app.presentation.products.entity.RepoItemCell
+import app.presentation.products.entity.repo.RepoItemCell
 
 class RepoListAdapter(onItemClick: (RecyclerItem, View) -> Unit) : BasePagedListAdapter(
     RepoItemCell,
