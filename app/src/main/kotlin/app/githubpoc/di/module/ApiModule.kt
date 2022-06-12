@@ -1,6 +1,6 @@
 package app.githubpoc.di.module
 
-import app.data.products.remote.ProductsApi
+import app.data.products.remote.GithubApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +14,7 @@ class ApiModule {
 
     @Provides
     @Singleton
-    fun products(retrofit: Retrofit): ProductsApi =
-        retrofit.create(ProductsApi::class.java)
+    fun products(retrofit: Retrofit): GithubApi =
+        retrofit.create(GithubApi::class.java)
 
 }

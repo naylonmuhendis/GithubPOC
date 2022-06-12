@@ -2,10 +2,10 @@ package app.data.products.datasource
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import app.data.products.entity.BeerMapper
-import app.data.products.remote.ProductsApi
+import app.data.products.entity.RepoMapper
+import app.data.products.remote.GithubApi
 import app.domain.base.Failure
-import app.domain.products.entity.Beer
+import app.domain.products.entity.Repo
 import io.reactivex.rxjava3.annotations.NonNull
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
@@ -17,19 +17,19 @@ import javax.inject.Singleton
 private const val STARTING_PAGE_INDEX = 1
 
 @Singleton
-class ProductsPagingSourceByCoroutine @Inject constructor(
-    private val productsApi: ProductsApi,
+class ReposPagingSource @Inject constructor(
+    private val productsApi: GithubApi,
     //private val query: String
-) : PagingSource<Int, Beer>() {
+) : PagingSource<Int, Repo>() {
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Beer> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Repo> {
         val position = params.key ?: STARTING_PAGE_INDEX
         //val apiQuery = query
 
         return try {
-            val response = productsApi.getBeersListByCoroutine(position)
+            val response = productsApi.search("kotlin", position).items
                 .map {
-                    BeerMapper().mapLeftToRight(it)
+                    RepoMapper().mapLeftToRight(it)
                 }
 
             toLoadResult(response, position)
@@ -56,12 +56,12 @@ class ProductsPagingSourceByCoroutine @Inject constructor(
 
     override val jumpingSupported = true
 
-    override fun getRefreshKey(state: PagingState<Int, Beer>): Int? = state.anchorPosition
+    override fun getRefreshKey(state: PagingState<Int, Repo>): Int? = state.anchorPosition
 
     private fun toLoadResult(
-        @NonNull response: List<Beer>,
+        @NonNull response: List<Repo>,
         position: Int,
-    ): LoadResult<Int, Beer> {
+    ): LoadResult<Int, Repo> {
         return LoadResult.Page(
             data = response,
             prevKey = if (position == STARTING_PAGE_INDEX) null else position - 1,

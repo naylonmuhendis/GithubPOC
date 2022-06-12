@@ -1,8 +1,8 @@
 package app.githubpoc.di.module
 
-import app.data.products.datasource.ProductsPagingSourceByCoroutine
-import app.data.products.repository.ProductsListRepositoryImpl
-import app.domain.products.repository.ProductsListRepository
+import app.data.products.datasource.ReposPagingSource
+import app.data.products.repository.GitRepoRepositoryImpl
+import app.domain.products.repository.GithubApiRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,8 +16,8 @@ class RepositoryModule {
     @Provides
     @ViewModelScoped
     fun productsList(
-        pagingSourceByCoroutine: ProductsPagingSourceByCoroutine
-    ): ProductsListRepository =
-        ProductsListRepositoryImpl(pagingSourceByCoroutine)
+        pagingSourceByCoroutine: ReposPagingSource
+    ): GithubApiRepository =
+        GitRepoRepositoryImpl(pagingSourceByCoroutine)
 
 }

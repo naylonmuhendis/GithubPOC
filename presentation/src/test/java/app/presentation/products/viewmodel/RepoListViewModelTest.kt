@@ -5,14 +5,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asLiveData
 import androidx.paging.PagingData
-import app.domain.products.entity.Beer
-import app.domain.products.factory.ProductFactory
+import app.domain.products.entity.Repo
+import app.domain.products.factory.RepoFactory
 import app.domain.products.usecase.GetBeersListByCoroutineParams
-import app.domain.products.usecase.GetBeersListByCoroutineUseCase
+import app.domain.products.usecase.GetGithubRepoSearchUseCase
 import app.presentation.base.adapter.RecyclerItem
-import app.presentation.products.choose.ChoosePathType
-import app.presentation.products.productlist.CHOOSE_PATH_TYPE
-import app.presentation.products.productlist.ProductsListViewModel
+import app.presentation.products.repolist.RepoListViewModel
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.Dispatchers
@@ -33,15 +31,15 @@ import org.mockito.ArgumentMatchers.anyString
 
 
 @RunWith(JUnit4::class)
-class ProductsListViewModelTest {
+class RepoListViewModelTest {
 
-    private lateinit var viewModel: ProductsListViewModel
+    private lateinit var viewModel: RepoListViewModel
 
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
 
     @MockK
-    lateinit var getBeersListByCoroutineUseCase: GetBeersListByCoroutineUseCase
+    lateinit var getBeersListByCoroutineUseCase: GetGithubRepoSearchUseCase
 
     @MockK
     lateinit var savedStateHandle: SavedStateHandle
@@ -62,8 +60,8 @@ class ProductsListViewModelTest {
     fun `test when ProductsListViewModel is initialized, products are fetched`() =
         runTest {
             // Given
-            val givenProducts = ProductFactory.createProducts(3)
-            val flow = flow<PagingData<Beer>> {
+            val givenProducts = RepoFactory.createProducts(3)
+            val flow = flow<PagingData<Repo>> {
 //                emit(LoadState.Loading)
                 delay(10)
                 emit(PagingData.from(givenProducts))
@@ -77,12 +75,9 @@ class ProductsListViewModelTest {
                 .returns(flow)
 
             // Invoke
-            every {
-                savedStateHandle.get<ChoosePathType>(CHOOSE_PATH_TYPE) ?: ChoosePathType.COROUTINE
-            } returns ChoosePathType.COROUTINE
-            viewModel = ProductsListViewModel(
-                getBeersListByCoroutineUseCase = getBeersListByCoroutineUseCase,
-                savedStateHandle = savedStateHandle
+
+            viewModel = RepoListViewModel(
+                getGithubRepoSearchUseCase = getBeersListByCoroutineUseCase,
             )
             viewModel.productsListByCoroutine.asLiveData().observeForever(productsListObserver)
 

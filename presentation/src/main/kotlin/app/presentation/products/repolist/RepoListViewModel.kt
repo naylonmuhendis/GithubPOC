@@ -1,4 +1,4 @@
-package app.presentation.products.productlist
+package app.presentation.products.repolist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,10 +8,10 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
 import app.domain.products.usecase.GetBeersListByCoroutineParams
-import app.domain.products.usecase.GetBeersListByCoroutineUseCase
+import app.domain.products.usecase.GetGithubRepoSearchUseCase
 import app.presentation.base.adapter.RecyclerItem
 import app.presentation.base.viewmodel.BaseViewModel
-import app.presentation.products.entity.BeerMapper
+import app.presentation.products.entity.RepoMapper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,9 +21,8 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class ProductsListViewModel @Inject constructor(
-    private val getBeersListByCoroutineUseCase: GetBeersListByCoroutineUseCase,
-    savedStateHandle: SavedStateHandle,
+class RepoListViewModel @Inject constructor(
+    private val getGithubRepoSearchUseCase: GetGithubRepoSearchUseCase,
 ) : BaseViewModel() {
 
     private val _ldProductsList: MutableLiveData<PagingData<RecyclerItem>> = MutableLiveData()
@@ -39,14 +38,14 @@ class ProductsListViewModel @Inject constructor(
     }
 
     private fun getProductsByCoroutinePath(ids: String) =
-        getBeersListByCoroutineUseCase(GetBeersListByCoroutineParams(ids = ids))
+        getGithubRepoSearchUseCase(GetBeersListByCoroutineParams(searchText = ids))
             .cachedIn(viewModelScope)
 
     private fun getProductsBaseOnPath(ids: String) {
         viewModelScope.launch {
             _productsListByCoroutine.value = getProductsByCoroutinePath(ids).first()
                 .map { beer ->
-                    BeerMapper().mapLeftToRight(beer)
+                    RepoMapper().mapLeftToRight(beer)
                 }
         }
     }

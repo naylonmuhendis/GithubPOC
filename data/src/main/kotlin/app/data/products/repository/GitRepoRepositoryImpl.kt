@@ -3,21 +3,21 @@ package app.data.products.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import app.data.products.datasource.ProductsPagingSourceByCoroutine
+import app.data.products.datasource.ReposPagingSource
 import app.domain.extension.allowReads
-import app.domain.products.entity.Beer
-import app.domain.products.repository.ProductsListRepository
+import app.domain.products.entity.Repo
+import app.domain.products.repository.GithubApiRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ProductsListRepositoryImpl @Inject constructor(
-    private val pagingSourceByCoroutine: ProductsPagingSourceByCoroutine
-) : ProductsListRepository {
+class GitRepoRepositoryImpl @Inject constructor(
+    private val pagingSourceByCoroutine: ReposPagingSource,
+) : GithubApiRepository {
 
 
-    override fun getBeersListByCoroutine(ids: String): Flow<PagingData<Beer>> =
+    override fun getKotlinReposSearch(searchText: String): Flow<PagingData<Repo>> =
         allowReads {
             Pager(
                 config = PagingConfig(
