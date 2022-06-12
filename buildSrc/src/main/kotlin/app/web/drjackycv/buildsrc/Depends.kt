@@ -20,7 +20,7 @@ object Depends {
         const val lifecycleVersion = "2.4.0"
         const val constraintLayoutVersion = "2.1.3"
         const val supportVersion = "1.4.1"
-        const val materialVersion = "1.4.0"
+        const val materialVersion = "1.3.0-alpha03"
         const val coreKtxVersion = "1.8.0"
         const val navigationVersion = "2.5.0-alpha04"
         const val pagingVersion = "3.1.1"
@@ -55,6 +55,8 @@ object Depends {
         const val coroutinesTestVersion = "1.6.0"
         const val mockkVersion = "1.12.2"
         const val archCoreTestingVersion = "2.1.0"
+        const val circleImageViewVersion = "3.1.0"
+        const val flexibleLayoutVersion = "3.0.0"
     }
 
     object ClassPaths {
@@ -153,6 +155,11 @@ object Depends {
 
         const val prettyRequestLog =
             "com.github.ihsanbal:LoggingInterceptor:${Versions.prettyRequestLogVersion}"
+        const val circleImageView =
+            "de.hdodenhof:circleimageview:${Versions.circleImageViewVersion}"
+
+        const val flexibleRecyclerView =
+            "com.google.android.flexbox:flexbox:${Versions.flexibleLayoutVersion}"
     }
 
     object Environments {

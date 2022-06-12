@@ -94,6 +94,9 @@ dependencies {
     implementation(Depends.Libraries.glide)
     kapt(Depends.Libraries.glide_compiler)
     implementation(Depends.Libraries.lottie)
+    implementation(Depends.Libraries.circleImageView)
+    implementation(Depends.Libraries.flexibleRecyclerView)
+
     //test
     androidTestImplementation(Depends.Libraries.test_runner)
     androidTestImplementation(Depends.Libraries.test_rules)

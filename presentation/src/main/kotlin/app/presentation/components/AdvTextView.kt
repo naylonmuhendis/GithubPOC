@@ -51,7 +51,7 @@ open class AdvTextView : AppCompatTextView {
                 )
             } ?: ResourcesCompat.getFont(context, R.string.font_regular)
             setTypeface(typeface)
-            includeFontPadding = false
+            includeFontPadding = true
         } catch (ignored: Throwable) {
             Timber.d(ignored.localizedMessage)
         } finally {

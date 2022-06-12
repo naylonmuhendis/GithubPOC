@@ -2,7 +2,7 @@
 <resources>
 
     <string name="inter_thin">font/inter_thin.ttf</string>
-    <string name="inter_semi_bold">font/inter_semi-bold.ttf</string>
+    <string name="inter_semi_bold">font/inter_semi_bold.ttf</string>
     <string name="inter_regular">font/inter_regular.ttf</string>
     <string name="inter_medium">font/inter_medium.ttf</string>
     <string name="inter_light">font/inter_light.ttf</string>

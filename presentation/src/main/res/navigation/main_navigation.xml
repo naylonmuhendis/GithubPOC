@@ -10,5 +10,9 @@
         android:name="app.presentation.products.repolist.RepoListFragment"
         tools:layout="@layout/fragment_repo_list" />
 
+    <fragment
+        android:id="@+id/virtualCvFragment"
+        android:name="app.presentation.products.virtualcv.FragmentVirtualCV"
+        tools:layout="@layout/fragment_repo_list" />
 
 </navigation>

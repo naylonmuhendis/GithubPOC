@@ -7,5 +7,17 @@
     <string name="abv">ABV: %1$s</string>
     <string name="rxjava">RxJava</string>
     <string name="coroutine">Coroutine</string>
+
+    <!--    VirtualCV -->
     <string name="open_cv">Open CV</string>
+    <string name="john_doe">John Doe</string>
+    <string name="cv_header">John Doe’s Virtual CV</string>
+    <string name="email_text">john@doe.com</string>
+    <string name="phone_text">555–1234–567</string>
+    <string name="skills">Skills</string>
+    <string name="bio">Bio</string>
+    <string name="bio_text">John Doe" and "Jane Doe" (for females) are multiple-use names that are used when the true name of a person is unknown or is being intentionally concealed. In the context of law enforcement in the United States, such names are often used to refer to a corpse whose identity is unknown or unconfirmed. Secondly, such names are also often used to refer to a hypothetical "everyman" in other contexts, in a manner similar to "John Q. Public" or "Joe Public". There are many variants to the above names, including "John Roe", "Richard Roe", "Jane Roe" and "Baby Doe", "Janie Doe" or "Johnny Doe" (for children)</string>
+    <string name="gallery">Gallery</string>
+
+
 </resources>

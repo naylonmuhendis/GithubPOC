@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     private val binding by viewBinding(ActivityMainBinding::inflate)
     private val navController: NavController by lazy {
-        findNavController(R.id.activityMainChooseHostFragment)
+        findNavController(R.id.activityMainHostFragment)
     }
     private var uiStateJob: Job? = null
 
@@ -71,6 +71,10 @@ class MainActivity : AppCompatActivity() {
             dataStoreManager.themeMode.collectIn(this@MainActivity) { mode ->
                 setNightMode(mode)
             }
+        }
+
+        binding.headerView.openCV.setOnReactiveClickListener {
+            findNavController(R.id.activityMainHostFragment).navigate(R.id.virtualCvFragment)
         }
     }
 
