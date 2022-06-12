@@ -37,7 +37,7 @@ object RepoItemCell : Cell<RecyclerItem, ViewBinding> {
             holder.bind(item)
             holder.itemView.setOnClickListener {
                 onItemClick?.run {
-                    this(item, holder.itemBinding.parentView)
+                    this(item, holder.itemBinding.root)
                 }
             }
         }

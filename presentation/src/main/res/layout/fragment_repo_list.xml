@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+        <variable
+            name="viewModel"
+            type="app.presentation.products.repolist.RepoListViewModel" />
+
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <app.presentation.components.AdvRecyclerView
+            android:id="@+id/repoRv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:rvDividerDrawable="@drawable/divider_application"
+            app:rvDividerMode="middle"
+            app:rvExtraSpace="off"
+            app:rvPreviewLayout="list"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_repo_list" />
+
+        <include
+            android:id="@+id/inclItemError"
+            layout="@layout/item_error"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:visibility="gone" />
+
+        <include
+            android:id="@+id/inclItemLoading"
+            layout="@layout/item_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:visibility="gone" />
+
+    </FrameLayout>
+</layout>

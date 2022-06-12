@@ -1,6 +1,7 @@
 package app.presentation.products.factory
 
 import app.presentation.products.entity.repo.RepoUI
+import kotlin.random.Random
 
 class RepoUIFactory {
 
@@ -18,6 +19,8 @@ class RepoUIFactory {
                     language = "language$it",
                     ownerName = "ownerName$it",
                     avatarUrl = "https://images.punkapi.com/v2/$it.png",
+                    updatedAt = Random(151515151).nextLong().toString()
+
                 )
             }
         }

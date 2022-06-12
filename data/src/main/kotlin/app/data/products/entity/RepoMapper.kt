@@ -16,7 +16,8 @@ class RepoMapper : Mapper<RepoResponse, Repo> {
             description = description,
             language = language,
             ownerName = owner.login,
-            avatarUrl = owner.avatarUrl
+            avatarUrl = owner.avatarUrl,
+            updatedAt = updatedAt
         )
     }
 

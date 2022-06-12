@@ -9,12 +9,12 @@ plugins {
 
 android {
 
-    compileSdkVersion(Depends.Versions.androidCompileSdkVersion)
+    compileSdk =(Depends.Versions.androidCompileSdkVersion)
 
     defaultConfig {
         multiDexEnabled = true
-        minSdkVersion(Depends.Versions.minSdkVersion)
-        targetSdkVersion(Depends.Versions.targetSdkVersion)
+        minSdk = (Depends.Versions.minSdkVersion)
+        targetSdk = (Depends.Versions.targetSdkVersion)
         testInstrumentationRunner =
             Depends.Versions.testInstrumentationRunner
         consumerProguardFiles("consumer-rules.pro")
@@ -75,6 +75,8 @@ dependencies {
     implementation(Depends.Libraries.logging_interceptor)
     debugImplementation(Depends.Libraries.chucker)
     releaseImplementation(Depends.Libraries.chucker_no_op)
+    implementation(Depends.Libraries.prettyRequestLog)
+
     //other
     implementation(Depends.Libraries.timber)
     implementation(Depends.Libraries.material)

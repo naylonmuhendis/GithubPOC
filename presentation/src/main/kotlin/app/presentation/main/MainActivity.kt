@@ -1,6 +1,9 @@
 package app.presentation.main
 
+import android.content.Context
 import android.os.Bundle
+import android.util.AttributeSet
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.lifecycleScope
@@ -13,7 +16,7 @@ import app.presentation.databinding.ActivityMainBinding
 import app.presentation.datastore.DataStoreManager
 import app.presentation.extension.collectIn
 import app.presentation.extension.setOnReactiveClickListener
-import app.presentation.extension.viewInflateBinding
+import app.presentation.extension.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -23,7 +26,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val binding by viewInflateBinding(ActivityMainBinding::inflate)
+    private val binding by viewBinding(ActivityMainBinding::inflate)
     private val navController: NavController by lazy {
         findNavController(R.id.activityMainChooseHostFragment)
     }

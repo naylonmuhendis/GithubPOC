@@ -14,8 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/header_height"
         android:layout_marginBottom="@dimen/app_space"
-        android:background="@android:color/white"
-        app:visibleGone="@{headerModel.visible}"
+        android:background="@color/detail_bg"
         tools:visibility="visible">
 
         <ImageView
@@ -29,8 +28,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_back_arrow"
             app:visibleGone="@{headerModel.backButtonVisible}"
-            tools:visibility="visible"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/header_layout"
@@ -58,9 +57,9 @@
             android:gravity="center"
             android:lines="1"
             android:text="@{headerModel.title}"
-            android:textColor="#000000"
+            android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/header_title_text_size"
-            app:customFont="@string/roboto_light"
+            app:customFont="@string/font_regular"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,13 +73,11 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_margin="@dimen/app_space"
-            android:background="@color/red"
             android:gravity="center"
             android:scaleType="centerCrop"
             android:text="@string/open_cv"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:visibleGone="@{headerModel.closeBtnVisible}" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

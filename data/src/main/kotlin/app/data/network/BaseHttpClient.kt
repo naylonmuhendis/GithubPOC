@@ -1,11 +1,15 @@
 package app.data.network
 
 import android.content.Context
+import app.data.BuildConfig
 import app.data.BuildConfig.DEBUG
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
+import com.ihsanbal.logging.Level
+import com.ihsanbal.logging.LoggingInterceptor
 import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.OkHttpClient
+import okhttp3.internal.platform.Platform
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -16,13 +20,21 @@ private const val TIMEOUT = 5L
 @Singleton
 class BaseHttpClient @Inject constructor(
     @ApplicationContext appContext: Context,
-    chuckerCollector: ChuckerCollector
+    chuckerCollector: ChuckerCollector,
 ) {
 
     private val chuckerInterceptor = ChuckerInterceptor.Builder(appContext)
         .collector(chuckerCollector)
         .maxContentLength(250000L)
         .redactHeaders(emptySet())
+        .build()
+
+    private val prettyLogInterceptor: LoggingInterceptor = LoggingInterceptor.Builder()
+        .loggable(DEBUG)
+        .setLevel(Level.BASIC)
+        .log(Platform.INFO)
+        .request("Pretty-Request")
+        .response("Pretty-Response")
         .build()
 
     val okHttpClient = OkHttpClient()
@@ -34,6 +46,7 @@ class BaseHttpClient @Inject constructor(
             }
         )
         .addInterceptor(chuckerInterceptor)
+        .addInterceptor(prettyLogInterceptor)
         .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
         .readTimeout(TIMEOUT, TimeUnit.SECONDS)
         .writeTimeout(TIMEOUT, TimeUnit.SECONDS)

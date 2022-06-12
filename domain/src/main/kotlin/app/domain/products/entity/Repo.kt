@@ -10,4 +10,5 @@ class Repo(
     val language: String?,
     val ownerName: String?,
     val avatarUrl: String?,
+    val updatedAt: String,
 )

@@ -14,6 +14,7 @@ import app.presentation.extension.viewBinding
 
 abstract class BaseFragment<DB : ViewDataBinding, VM : BaseViewModel> : Fragment() {
 
+    protected abstract val viewModel: VM
     var binding: DB? = null
 
     @LayoutRes

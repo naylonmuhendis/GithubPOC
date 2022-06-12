@@ -10,13 +10,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Depends.Versions.androidCompileSdkVersion)
+    compileSdk = (Depends.Versions.androidCompileSdkVersion)
 
     defaultConfig {
         multiDexEnabled = true
-        applicationId = "app.mvvmtemplate"
-        minSdkVersion(Depends.Versions.minSdkVersion)
-        targetSdkVersion(Depends.Versions.targetSdkVersion)
+        applicationId = "app.githubpoc"
+        minSdk = (Depends.Versions.minSdkVersion)
+        targetSdk = (Depends.Versions.targetSdkVersion)
         versionCode = Depends.Versions.appVersionCode
         versionName = Depends.generateVersionName()
         testInstrumentationRunner =
@@ -55,13 +55,17 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
-    lintOptions {
-        isAbortOnError = false
+    lint {
+        abortOnError = false
+    }
+
+    buildFeatures {
+        dataBinding = true
     }
     //testOptions.unitTests.returnDefaultValues = true
     packagingOptions {
-        exclude("META-INF/rxjava.properties")
-        exclude("META-INF/proguard/androidx-annotations.pro")
+        resources.excludes.add("META-INF/rxjava.properties")
+        resources.excludes.add("META-INF/proguard/androidx-annotations.pro")
     }
 }
 

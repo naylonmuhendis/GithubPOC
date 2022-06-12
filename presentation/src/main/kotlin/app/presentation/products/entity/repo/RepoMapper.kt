@@ -15,7 +15,8 @@ class RepoMapper : Mapper<Repo, RepoUI> {
             language = language,
             ownerName = ownerName,
             avatarUrl = avatarUrl,
-            description = description
+            description = description,
+            updatedAt = updatedAt
         )
     }
 

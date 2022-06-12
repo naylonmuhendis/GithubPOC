@@ -36,6 +36,7 @@ object Depends {
         const val glideVersion = "4.13.1"
         const val autoDispose = "2.1.1"
         const val dataStorePreferenceVersion = "1.0.0"
+        const val prettyRequestLogVersion = "3.0.0"
 
         const val mockitoKotlinVersion = "2.2.0"
         const val mockitoCoreVersion = "4.3.1"
@@ -149,11 +150,14 @@ object Depends {
             "com.github.chuckerteam.chucker:library-no-op:${Versions.chuckerVersion}"
         const val dataStore_preferences =
             "androidx.datastore:datastore-preferences:${Versions.dataStorePreferenceVersion}"
+
+        const val prettyRequestLog =
+            "com.github.ihsanbal:LoggingInterceptor:${Versions.prettyRequestLogVersion}"
     }
 
     object Environments {
-        const val debugBaseUrl = "https://api.punkapi.com/v2/"
-        const val releaseBaseUrl = "https://api.punkapi.com/v2/"
+        const val debugBaseUrl = "https://api.github.com/"
+        const val releaseBaseUrl = "https://api.github.com/"
     }
 
     fun generateVersionName(): String {

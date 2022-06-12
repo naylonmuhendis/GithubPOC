@@ -81,7 +81,8 @@ inline fun <T : ViewBinding> Fragment.viewInflateBinding(
 ): FragmentViewBindingDelegate<T> =
     FragmentViewBindingDelegate(this, { f -> bindingInflater(f.layoutInflater) }, cleanUp)
 
-inline fun <T : ViewBinding> AppCompatActivity.viewInflateBinding(
+
+inline fun <T : ViewBinding> AppCompatActivity.viewBinding(
     crossinline bindingInflater: (LayoutInflater) -> T,
 ) =
     lazy(LazyThreadSafetyMode.NONE) {
