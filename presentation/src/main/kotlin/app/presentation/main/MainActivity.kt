@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.AttributeSet
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.lifecycleScope
@@ -34,11 +35,12 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var dataStoreManager: DataStoreManager
-
+    val mainActivityViewModel: MainActivityViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setupUI()
+        subscribeHeader()
     }
 
     override fun onSupportNavigateUp() = navController.navigateUp()
@@ -75,6 +77,15 @@ class MainActivity : AppCompatActivity() {
 
         binding.headerView.openCV.setOnReactiveClickListener {
             findNavController(R.id.activityMainHostFragment).navigate(R.id.virtualCvFragment)
+        }
+        subscribeHeader()
+
+    }
+
+    private fun subscribeHeader() {
+        mainActivityViewModel.viewSettingsUIModel.observe(this) {
+            binding.headerView.viewSettingsUIModel = it
+            binding.viewSettingsUIModel = it
         }
     }
 

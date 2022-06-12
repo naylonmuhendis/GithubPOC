@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="headerModel"
-            type="app.presentation.products.entity.base.HeaderUIModel" />
+            name="viewSettingsUIModel"
+            type="app.presentation.products.entity.base.ViewSettingsUIModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,6 +45,7 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/activityMainSwitchThemeFab"
                 style="@style/Widget.MaterialComponents.FloatingActionButton"
+                visibleGone="@{viewSettingsUIModel.isThemeChangeButtonVisible}"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 android:layout_gravity="bottom|end"

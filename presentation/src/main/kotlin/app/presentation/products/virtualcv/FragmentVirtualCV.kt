@@ -10,6 +10,7 @@ import app.presentation.base.fragment.BaseFragment
 import app.presentation.base.viewmodel.BaseViewModel
 import app.presentation.databinding.FragmentVirtualCvBinding
 import app.presentation.databinding.ItemSkillsLayoutBinding
+import app.presentation.products.entity.base.ViewSettingsUIModel
 import app.presentation.products.repolist.RepoListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,6 +18,19 @@ import dagger.hilt.android.AndroidEntryPoint
 class FragmentVirtualCV : BaseFragment<FragmentVirtualCvBinding, BaseViewModel>() {
     override fun getLayoutRes() = R.layout.fragment_virtual_cv
     override val viewModel: BaseViewModel by viewModels()
+    override fun updateHeader() {
+        mainActivityViewModel.viewSettingsUIModel.postValue(
+            ViewSettingsUIModel(
+                isHeaderVisible = false,
+                title = "",
+                isBackButtonVisible = false,
+                isCloseBtnVisible = false,
+                isBottomNavVisible = false,
+                isThemeChangeButtonVisible = false
+            )
+        )
+    }
+
     private val galleryListAdapter: GalleryListAdapter by lazy {
         GalleryListAdapter(::galleryClick)
     }
@@ -26,6 +40,7 @@ class FragmentVirtualCV : BaseFragment<FragmentVirtualCvBinding, BaseViewModel>(
         addSkill(getSkillList())
         setupGallery()
     }
+
 
     private fun setupGallery() {
         binding?.galleryRv?.apply {

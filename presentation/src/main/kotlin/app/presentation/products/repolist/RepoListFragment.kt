@@ -18,6 +18,7 @@ import app.presentation.extension.collectIn
 import app.presentation.extension.gone
 import app.presentation.extension.invisible
 import app.presentation.extension.visible
+import app.presentation.products.entity.base.ViewSettingsUIModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,6 +26,19 @@ class RepoListFragment : BaseFragment<FragmentRepoListBinding, RepoListViewModel
 
     override fun getLayoutRes() = R.layout.fragment_repo_list
     override val viewModel: RepoListViewModel by viewModels()
+    override fun updateHeader() {
+        mainActivityViewModel.viewSettingsUIModel.postValue(
+            ViewSettingsUIModel(
+                isHeaderVisible = true,
+                title = getString(R.string.home),
+                isBackButtonVisible = false,
+                isCloseBtnVisible = false,
+                isBottomNavVisible = false,
+                isThemeChangeButtonVisible = true
+            )
+        )
+    }
+
     private val productsListAdapter: RepoListAdapter by lazy {
         RepoListAdapter(::navigateToRepoDetail)
     }
@@ -35,6 +49,7 @@ class RepoListFragment : BaseFragment<FragmentRepoListBinding, RepoListViewModel
         setupView()
         setupRecycler()
     }
+
 
     private fun navigateToRepoDetail(item: RecyclerItem, view: View) {
         //TODO $item $view
